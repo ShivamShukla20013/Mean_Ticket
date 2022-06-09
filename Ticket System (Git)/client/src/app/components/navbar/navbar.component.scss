@@ -1,0 +1,41 @@
+.headerContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 1em;
+
+  h1 {
+    margin-block: 0;
+    color: #fff;
+    font-size: 1.8em;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .headerButton {
+    display: flex;
+    align-items: center;
+
+    h3 {
+      margin: 0 2em;
+      color: #fff;
+      display: flex;
+      align-items: center;
+        span {
+          font-size: 1.8em;
+          margin-right: .5em;
+        }
+    }
+
+    a {
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 0.3em;
+      padding: 0.6em 1.5em;
+      margin-left: 2em;
+      background: #b3ffab;
+      background: linear-gradient(229deg, #b3ffab 0%, #12fff7 100%);
+    }
+  }
+}

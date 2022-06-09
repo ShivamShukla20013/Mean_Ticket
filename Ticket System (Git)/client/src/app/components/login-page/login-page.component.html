@@ -1,0 +1,64 @@
+
+    <div class="container">
+        <div class="loginTitle">
+          <h1>Login to Your Account</h1>
+          <p>
+            Solve Tickets Seamlessly
+          </p>
+        </div>
+        <div class="signinInfo" ngForm #loginForm="ngForm" >
+          <div class="inputFields">
+            <input
+              type="text"
+              name="usrname"
+              id="usrname"
+              required
+              pattern="^(?=.*?[A-Za-z])(?=.*?[0-9]).{5,15}$"
+              [(ngModel)]="signInModel.usrname"
+              placeholder="User Name"
+              #usrname="ngModel"
+            />
+
+            <div
+            *ngIf="usrname.invalid && (usrname.dirty || usrname.touched)"
+            class="alert"
+          >
+            <div *ngIf="usrname.errors?.['required']">
+              Username is required.
+            </div>
+            <div *ngIf="usrname.errors?.['pattern']">
+              It is not a valid username.
+            </div>
+          </div>
+
+          <input
+          type="password"
+          name="password"
+          id="password"
+          required
+          pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+          [(ngModel)]="signInModel.password"
+          placeholder="8 Digit Password"
+          #password="ngModel"
+          />
+
+          <div
+            *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="alert"
+          >
+            <div *ngIf="password.errors?.['required']">
+              Password is required.
+            </div>
+            <div *ngIf="password.errors?.['pattern']">
+            Password shall contain an uppercase, <br> lowercase and a numerical
+            or special characters.<br> Length must be minimum 8 characters.
+            </div>
+          </div>
+
+            <a (click)="onSubmit()">Login to Your Account<span class="material-symbols-outlined">
+              arrow_forward
+              </span></a>
+          </div>
+        </div>
+    </div>
+

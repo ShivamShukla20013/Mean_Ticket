@@ -1,0 +1,107 @@
+.mat-elevation-z8 {
+  padding: 1em 1em 0;
+
+  .paginator{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: absolute;
+    top: 2.5em;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+
+      ::placeholder {
+        color: rgba(255, 255, 255, 0.526);
+      }
+  }
+
+table {
+  width: 100%;
+  background-color: transparent;
+
+  button {
+    border-radius: .3em;
+    color: #fff;
+    border: .1em solid;
+    background: transparent !important;
+    border-image: linear-gradient(229deg, #b3ffab 0%, #12fff7 100%);
+    border-image-slice: 1;
+    transition: all ease 1s;
+
+    &:hover {
+      color: black;
+      background: #b3ffab;
+      background: linear-gradient(229deg, #b3ffab 0%, #12fff7 100%) !important;
+    }
+  }
+}
+}
+.btn-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+
+  button {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    border-radius: .3em;
+    border: .1em solid;
+    background: transparent !important;
+    border-image: linear-gradient(229deg, #b3ffab 0%, #12fff7 100%);
+    border-image-slice: 1;
+    transition: all ease 1s;
+
+    &:hover {
+      color: black;
+      background: #b3ffab;
+      background: linear-gradient(229deg, #b3ffab 0%, #12fff7 100%) !important;
+    }
+  }
+}
+
+.formBg {
+  padding: 2em;
+  border-radius: .3em;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.05);
+
+    h1 {
+      color: #fff;
+    }
+
+    .form-group {
+      label {
+        color: #fff;
+      }
+
+      textarea {
+        resize: none;
+      }
+
+      .form-control {
+        &:focus {
+          border: 1px solid transparent;
+          box-shadow: none; 
+        }
+      }
+    }
+
+    button {
+      border-radius: .3em;
+      border: .1em solid;
+      background: transparent !important;
+      border-image: linear-gradient(229deg, #b3ffab 0%, #12fff7 100%);
+      border-image-slice: 1;
+      transition: all ease 1s;
+
+      &:hover {
+        color: black;
+        background: #b3ffab;
+        background: linear-gradient(229deg, #b3ffab 0%, #12fff7 100%) !important;
+      }
+    }
+}

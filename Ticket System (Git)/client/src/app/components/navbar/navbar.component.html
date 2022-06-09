@@ -1,0 +1,22 @@
+<div
+  *ngIf="this.signin.islogIn === false; else issignin"
+class="headerContainer">
+    <h1>Ticket Gen.</h1>
+  <div class="headerButton">
+    <a [routerLink]="['signup']">Sign up</a>
+    <a [routerLink]="['signin']">Sign in</a>
+  </div>
+</div>
+
+<ng-template #issignin>
+    <div class="headerContainer">
+      <h1>Ticket Gen.</h1>
+    <div class="headerButton">
+      <h3>
+        <span class="material-symbols-outlined">person</span>
+        {{signin.user.usrname}}
+      </h3>
+      <a (click)="logout()">Log Out</a>
+    </div>
+    </div>
+</ng-template>

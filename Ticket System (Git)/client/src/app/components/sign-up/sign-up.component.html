@@ -1,0 +1,107 @@
+<div class="container">
+  <!-- Main -->
+  <div class="loginTitle">
+    <h1>Sign Up for Your Account</h1>
+  </div>
+        <div class="signUpInfo">
+          <form class="inputFields" (ngSubmit)="onRegister();"
+            #registerForm="ngForm">
+            <input
+              type="text"
+              name="fname"
+              id="fname"
+              pattern="[a-zA-Z ]*"
+              required
+              autofocus
+              minlength="2"
+              [(ngModel)]="signUpModel.firstName"
+              #fname="ngModel"
+              placeholder="First Name"
+            />
+            <div
+            *ngIf="fname.invalid && (fname.dirty || fname.touched)"
+            class="alert">
+
+            <div *ngIf="fname.errors?.['required']">First Name is required.</div>
+            <div *ngIf="fname.errors?.['minlength']">
+               First Name must be at least 2 characters long.
+            </div>
+            <div *ngIf="fname.errors?.['pattern']">
+             Only Characters Are Allowed
+            </div>
+          </div>
+            <input
+              type="text"
+              name="lname"
+              id="lname"
+              pattern="[a-zA-Z ]*"
+              required
+              minlength="2"
+              [(ngModel)]="signUpModel.lastName"
+              #lname="ngModel"
+              placeholder="Last Name"
+            />
+            <div
+            *ngIf="lname.invalid && (lname.dirty || lname.touched)"
+            class="alert">
+
+            <div *ngIf="lname.errors?.['required']">Last Name is required.</div>
+            <div *ngIf="lname.errors?.['minlength']">
+              Last Name must be at least 2 characters long.
+            </div>
+            <div *ngIf="lname.errors?.['pattern']">
+             Only Characters Are Allowed
+            </div>
+          </div>
+            <input
+              type="text"
+              name="usrname"
+              id="usrname"
+              required
+              pattern="^(?=.*?[A-Za-z])(?=.*?[0-9]).{5,15}$"
+              [(ngModel)]="signUpModel.usrname"
+              placeholder="User Name"
+              #usrname="ngModel"
+            />
+
+            <div
+            *ngIf="usrname.invalid && (usrname.dirty || usrname.touched)"
+            class="alert"
+          >
+            <div *ngIf="usrname.errors?.['required']">
+              Username is required.
+            </div>
+            <div *ngIf="usrname.errors?.['pattern']">
+              It is not a valid username.
+            </div>
+          </div>
+
+            <input
+              type="password"
+              name="password"
+              id="password"
+              required
+              pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+              [(ngModel)]="signUpModel.password"
+              placeholder="8 Digit Password"
+              #password="ngModel"
+            />
+
+            <div
+            *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="alert"
+          >
+            <div *ngIf="password.errors?.['required']">
+              Password is required.
+            </div>
+            <div *ngIf="password.errors?.['pattern']">
+              Password shall contain an uppercase,<br> a lowercase and a numerical
+              or special characters.<br> Length must be minimum 8 characters.
+            </div>
+          </div>
+
+            <input type="submit" value="Sign Up" class="btn-submit" [disabled]="!registerForm.form.valid">
+            <!-- <i class="fas fa-arrow-right"></i> -->
+          </form>
+        </div>
+</div>
