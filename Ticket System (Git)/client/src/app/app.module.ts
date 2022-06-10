@@ -10,6 +10,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSortModule } from '@angular/material/sort'
 import { MatInputModule } from '@angular/material/input';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +39,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     AppRoutingModule,
     MatFormFieldModule,
     MatInputModule,
+    FlashMessagesModule.forRoot(),
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
   ],

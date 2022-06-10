@@ -2,10 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-// import { MatSort, Sort } from '@angular/material/sort';
-// import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { NgForm } from '@angular/forms';
 import moment from 'moment';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 import { SigninService } from '../_services/signin.service';
 import { TicketService } from '../ticket/ticket.service';
@@ -34,7 +33,6 @@ export class DashboardComponent implements OnInit {
   dataSource = new MatTableDataSource<Ticket>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  // @ViewChild(MatSort) sort: MatSort;
 
   ngOnInit(): void {
     this.getTickets();
@@ -43,6 +41,7 @@ export class DashboardComponent implements OnInit {
   constructor(
     public signin: SigninService,
     public ticketservice: TicketService,
+    public flashMessageService: FlashMessagesService,
     private router: Router
   ) {
     if(this.signin.logIn()) {
@@ -87,16 +86,17 @@ export class DashboardComponent implements OnInit {
 
     if(form.value._id == '' || form.value._id == null) {
       this.ticketservice.createTicket(form.value).subscribe((res) => {
-        this.updated = false;
         this.resetForm();
-
+        this.flashMessageService.show('Ticket Created.',{
+          cssClass: 'alert-success toast-box',
+          timeout: 2500
+        })
         this.getTickets();
       });
     }
     else
     {
       this.ticketservice.editTicket(form.value).subscribe((res) => {
-        this.updated = true;
         this.resetForm();
 
         this.getTickets();

@@ -22,6 +22,7 @@
     "@angular/router": "~13.3.0",
     "@auth0/angular-jwt": "^5.0.2",
     "angular-bootstrap-md": "^13.0.0",
+    "angular2-flash-messages": "^3.0.1",
     "moment": "^2.29.3",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

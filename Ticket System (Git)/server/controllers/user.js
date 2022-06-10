@@ -10,7 +10,7 @@ const signin = async (req, res) => {
     const existingUser = await User.findOne({ usrname });
 
     if (!existingUser)
-      return res.status(404).json({ message: "User doesn't exist." });
+      return res.json({ message: "User doesn't exist." }).status(404);
 
     const isPasswordCorrect = await bcrypt.compare(
       password,
@@ -18,7 +18,7 @@ const signin = async (req, res) => {
     );
 
     if (!isPasswordCorrect)
-      return res.status(400).json({ message: "Invalid Credentials." });
+      return res.json({ message: "Invalid Password." }).status(400);
 
     const token = jwt.sign(
       { usrname: existingUser.usrname, id: existingUser._id },
